@@ -5,7 +5,7 @@
 /***********************************************/
 // Simulation + Hardware
 /***********************************************/
-#define NODE_CNT 2
+#define NODE_CNT 1
 #define THREAD_CNT 4
 #define REM_THREAD_CNT THREAD_CNT
 #define SEND_THREAD_CNT THREAD_CNT
@@ -19,7 +19,8 @@
 #define CLIENT_RUNTIME false
 
 #define LOAD_METHOD LOAD_MAX
-#define LOAD_PER_SERVER 100
+// was 100 boya
+#define LOAD_PER_SERVER 10
 
 // Replication
 #define REPLICA_CNT 0
@@ -27,8 +28,9 @@
 #define REPL_TYPE AP
 
 // each transaction only accesses only 1 virtual partition. But the lock/ts manager and index are not aware of such partitioning. VIRTUAL_PART_CNT describes the request distribution and is only used to generate queries. For HSTORE, VIRTUAL_PART_CNT should be the same as PART_CNT.
-#define VIRTUAL_PART_CNT    PART_CNT  
-#define PAGE_SIZE         4096 
+#define VIRTUAL_PART_CNT    PART_CNT
+// was 4096
+#define PAGE_SIZE         2 
 #define CL_SIZE           64
 #define CPU_FREQ          2.6
 // enable hardware migration.
@@ -165,16 +167,22 @@
 #define SKEW_METHOD ZIPF
 #define DATA_PERC 100
 #define ACCESS_PERC 0.03
-#define INIT_PARALLELISM 8
-#define SYNTH_TABLE_SIZE 65536
-#define ZIPF_THETA 0.3
+
+//was 8
+#define INIT_PARALLELISM 2
+
+//was 65536
+#define SYNTH_TABLE_SIZE 1000
+//was 0.3
+#define ZIPF_THETA 0
 #define TXN_WRITE_PERC 0.0
 #define TUP_WRITE_PERC 0.0
 #define SCAN_PERC           0
 #define SCAN_LEN          20
 #define PART_PER_TXN PART_CNT
-#define PERC_MULTI_PART     MPR 
-#define REQ_PER_QUERY 10
+#define PERC_MULTI_PART     MPR
+//was 10
+#define REQ_PER_QUERY 2
 #define FIELD_PER_TUPLE       10
 #define CREATE_TXN_FILE false
 #define STRICT_PPT 0
@@ -351,7 +359,8 @@ enum PPSTxnType {PPS_ALL = 0,
 
 #define SEED 0
 #define SHMEM_ENV false
-#define ENVIRONMENT_EC2 true
+// was true
+#define ENVIRONMENT_EC2 false
 
 #endif
 
